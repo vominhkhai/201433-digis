@@ -46,5 +46,13 @@ product.color.form.create.success: "Create a new product color successful"
 product.color.form.delete.confirm: "Dơ you want to delete this product color"
 product.color.delete.success: "Delete product color successful"
 
+#translate for category
+"Product Category": "Danh mục sản phẩm"
+"List Product Category": "Danh sách danh mục sản phẩm"
+category.form.name: "Tên danh mục"
+category.form.id: "ID"
+category.add: "Thêm mới danh mục"
+
+
 
  

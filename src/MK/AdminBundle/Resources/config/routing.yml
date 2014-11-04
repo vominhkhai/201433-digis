@@ -23,5 +23,9 @@ mk_admin_product_color:
 mk_admin_language:
     resource: "@MKAdminBundle/Resources/config/routing/language.yml"
     prefix:   /language
+    
+mk_admin_category:
+    resource: "@MKAdminBundle/Resources/config/routing/category.yml"
+    prefix:   /category
 
   

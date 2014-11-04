@@ -1,0 +1,19 @@
+mk_admin_category:
+    path: /
+    defaults: { _controller: MKAdminBundle:Category:index }
+
+mk_admin_category_add:
+    path: /addnew
+    defaults: { _controller: MKAdminBundle:Category:add }
+        
+mk_admin_category_edit:
+    path: /edit/{categoryId}
+    defaults: { _controller: MKAdminBundle:Category:add, categoryId: null }
+    requirements:
+        productId:  \d+
+
+mk_admin_category_delete:
+    path: /delete/{categoryId}
+    defaults: { _controller: MKAdminBundle:Category:delete, categoryId: null }
+    requirements:
+        productId:  \d+
