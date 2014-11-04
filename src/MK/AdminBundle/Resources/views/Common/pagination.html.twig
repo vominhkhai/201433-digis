@@ -1,0 +1,26 @@
+
+<div class="row">
+                <div class="col-xs-6 col-left">
+                    <div id="table-2_info" class="dataTables_info">Showing {{fromEntries}} to {{endEntries}} of {{total}} entries</div>
+                </div>
+                <div class="col-xs-6 col-right">
+                    <div class="dataTables_paginate paging_bootstrap">
+{% if lastPage > 1 %}
+    <ul class="pagination pagination-sm">
+        <li><a href="{{ url ~ '?page=1' ~ pagingFilter()}}"><i class="entypo-left-open"></i></a></li>
+        {#<li><a href="{{ url ~ 'page=' ~ previousPage ~ pagingFilter() }}">Previous</a></li>#}
+        {% for page in 1..lastPage %}
+          {% if page == currentPage %}
+            <li class="active"><a href="{{ url ~ '?page=' ~ page ~ pagingFilter() }}">{{ page }}</a></li>
+          {% else %}
+            <li><a href="{{ url ~ '?page=' ~ page~ pagingFilter() }}">{{ page }}</a></li>
+          {% endif %}
+        {% endfor %}
+        {#<li><a href="{{ url ~ '?page=' ~ nextPage ~ pagingFilter() }}">Next</a></li>#}
+        <li><a href="{{ url ~ '?page=' ~ lastPage ~ pagingFilter() }}"><i class="entypo-right-open"></i></a></li>
+    </ul>
+
+{% endif %}
+                        </div>
+                </div>
+            </div>

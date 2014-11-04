@@ -1,0 +1,18 @@
+{% extends "MKAdminBundle::pagelayout.html.twig" %}
+
+{% block contentHeader %}
+    <section class="content-header">
+    <h1>
+        {{ "Product"|trans({}, 'admin_messages', 'MKAdminBundle') }}
+        <small>{{ "product.delete"|trans({}, 'admin_messages', 'MKAdminBundle') }}</small>
+
+</section>
+{% endblock %}
+
+{% block content %}
+    {{ "product.form.delete.confirm"|trans({}, 'admin_messages', 'MKAdminBundle') }}
+    <form action="{{ path('mk_admin_product_delete', {'productId': product.id}) }}" method="post">
+        {{ form_widget(form) }}
+    </form>
+{% endblock %}
+

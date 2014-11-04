@@ -1,0 +1,50 @@
+"Sign In Admin": "Đăng nhập quản trị"
+"Bad credentials": "Tên đăng nhập hoặc mật khẩu bị sai!"
+"User Name": "Tên"
+"Password": "Mật khẩu"
+"Login": "Đăng nhập"
+"Remember me": "Ghi nhớ"
+"Log out": "Thoát"
+"Edit": "Sửa"
+"Delete": "Xóa"
+form.action: "Chức năng"
+
+"Product": "Sản phẩm"
+"List Product": "Danh sách sản phẩm"
+"Product Color": "Màu sắc"
+
+product.add: "Thêm mới sản phẩm"
+product.edit: "Sửa thông tin sản phẩm"
+product.delete: "Xóa sản phẩm"
+product.form.title: "Tên sản phẩm"
+product.form.excerpt: "Nội dung tóm tắt"
+product.form.content: "Nội dung đầy đủ"
+product.form.price: "Giá mới"
+product.form.discount: "Giảm giá (%)"
+product.form.oldPrice: "Giá cũ"
+product.form.image: "Hình ảnh sản phẩm"
+product.form.productColor: "Màu sắc sản phẩm"
+product.form.delete.confirm: "Bạn có muốn xóa sản phẩm này không ?"
+form.product.create.success: "Thêm mới một sản phẩm thành công"
+form.product.delete.success: "Xóa sản phẩm thành công"
+notification.text: "Thông báo! "
+
+#translate for language
+language.form.id: "ID"
+language.form.name: "Name language"
+language.form.langKey: "Language key"
+language.form.defaultFrontend: "Default for FO"
+language.form.defaultBackend: "Default for BO"
+language.form.create.success: "Create a new language successful"
+language.form.create.error: "Error when create language"
+
+#translate for product color
+product.color.form.id: "ID"
+product.color.form.name: "Tên màu sắc"
+product.color.form.color: "Màu"
+product.color.form.create.success: "Create a new product color successful"
+product.color.form.delete.confirm: "Dơ you want to delete this product color"
+product.color.delete.success: "Delete product color successful"
+
+
+ 

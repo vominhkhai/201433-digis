@@ -1,0 +1,42 @@
+#translate for login page
+"Sign In Admin": "Sign In Admin"
+"Bad credentials": "User name or password wrong!"
+
+form.action: "Action"
+
+#translate for product
+product.form.title: "Title"
+product.form.excerpt: "Excerpt"
+product.form.content: "Content"
+product.form.price: "Price"
+product.form.discount: "Discount"
+product.form.oldPrice: "Old price"
+product.form.image: "Image"
+product.form.delete.confirm: "Do you want to delete this product"
+form.product.create.success: "Add a new product successful"
+form.product.create.success: "Delete product suceessful"
+notification.text: "Information! "
+
+#translate for language
+language.form.id: "ID"
+language.form.name: "Name language"
+language.form.langKey: "Language key"
+language.form.defaultFrontend: "Default for FO"
+language.form.defaultBackend: "Default for BO"
+language.form.create.success: "Create a new language successful"
+language.form.create.error: "Error when create language"
+
+#translate for product color
+product.color.form.id: "ID"
+product.color.form.name: "Name of Color"
+product.color.form.color: "Color"
+product.color.form.create.success: "Create a new product color successful"
+product.color.form.delete.confirm: "Dơ you want to delete this product color"
+product.color.delete.success: "Delete product color successful"
+
+
+
+
+
+
+ 

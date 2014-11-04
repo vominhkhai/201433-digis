@@ -1,0 +1,39 @@
+{% extends "MKAdminBundle::pagelayout.html.twig" %}
+	
+{% form_theme form _self %}
+{% block form_row %}
+    <div class="form-group">
+        {{ form_label(form) }}
+        {{ form_errors(form) }}
+        {{ form_widget(form) }}
+    </div>
+{% endblock form_row %}
+
+{% block contentHeader %}
+    <section class="content-header">
+    <h1>
+        Product Color 
+        <small>List product color</small>
+    </h1>
+    
+</section>
+{% endblock %}
+
+
+{% block content %}
+    <form action="{{ formAction }}" method="post">
+        {{ form_widget(form) }}
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+            
+{% endblock %}
+
+{% block endPageScript %}
+    <script type="text/javascript">
+        $(function() {
+             $(".my-colorpicker1").colorpicker();
+             console.log(123);
+        });
+    </script>
+{% endblock %}
+

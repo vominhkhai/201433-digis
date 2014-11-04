@@ -1,0 +1,27 @@
+mk_admin_homepage:
+    path:     /
+    defaults: { _controller: MKAdminBundle:Default:index }
+    
+mk_admin_login:
+    path: /login
+    defaults: { _controller: MKAdminBundle:Security:login }
+    
+mk_amdin_login_check:
+    path: /login_check
+    
+mk_amdin_logout:
+    path: /logout
+
+mk_admin_product:
+    resource: "@MKAdminBundle/Resources/config/routing/product.yml"
+    prefix:   /product
+    
+mk_admin_product_color:
+    resource: "@MKAdminBundle/Resources/config/routing/product_color.yml"
+    prefix:   /product-color
+    
+mk_admin_language:
+    resource: "@MKAdminBundle/Resources/config/routing/language.yml"
+    prefix:   /language
+
+  

@@ -1,0 +1,108 @@
+{% extends "MKAdminBundle::pagelayout.html.twig" %}
+
+{% block contentHeader %}
+    <section class="content-header">
+    <h1>
+        {{ "Product"|trans({}, 'admin_messages', 'MKAdminBundle') }}
+        <small>{{ "List Product"|trans({}, 'admin_messages', 'MKAdminBundle') }}</small>
+    </h1>
+</section>
+{% endblock %}
+
+
+
+{% block content %}
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-body table-responsive">
+                    <div role="grid" class="dataTables_wrapper form-inline" id="example1_wrapper">
+                        {% include('MKAdminBundle:Common:show_message.html.twig') %}
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div id="example1_length" class="dataTables_length">
+                                    <a class="btn btn-primary btn-flat" href="{{ path('mk_admin_product_add') }}">{{ "product.add"|trans({}, 'admin_messages', 'MKAdminBundle') }}</a>
+                                    {#
+                                    <label>
+                                        <select name="example1_length" size="1" aria-controls="example1">
+                                            <option value="10" selected="selected">10</option>
+                                            <option value="25">25</option>
+                                            <option value="50">50</option>
+                                            <option value="100">100</option>
+                                        </select> records per page
+                                    </label>
+                                    #}
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                {#
+                                <div class="dataTables_filter" id="example1_filter">
+                                    <label>Search: <input type="text" aria-controls="example1"></label>
+                                </div>
+                                #}
+                            </div>
+                        </div>
+                        <table class="table table-bordered table-striped dataTable" id="example1" aria-describedby="example1_info">
+                            <thead>
+                                <tr role="row">
+                                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 238px;" aria-label="Rendering engine: activate to sort column ascending">{{ "product.form.image"|trans({}, 'admin_messages', 'MKAdminBundle') }}</th>
+                                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 341px;" aria-label="Browser: activate to sort column ascending">{{ "product.form.title"|trans({}, 'admin_messages', 'MKAdminBundle') }}</th>
+                                    <th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 305px;" aria-sort="ascending" aria-label="Platform(s): activate to sort column descending">{{ "product.form.price"|trans({}, 'admin_messages', 'MKAdminBundle') }}</th>
+                                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 202px;" aria-label="Engine version: activate to sort column ascending">{{ "product.form.discount"|trans({}, 'admin_messages', 'MKAdminBundle') }}</th>
+                                    <th role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 202px;" aria-label="Engine version: activate to sort column ascending">{{ "form.action"|trans({}, 'admin_messages', 'MKAdminBundle') }}</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th rowspan="1" colspan="1">{{ "product.form.image"|trans({}, 'admin_messages', 'MKAdminBundle') }}</th>
+                                    <th rowspan="1" colspan="1">{{ "product.form.title"|trans({}, 'admin_messages', 'MKAdminBundle') }}</th>
+                                    <th rowspan="1" colspan="1">{{ "product.form.price"|trans({}, 'admin_messages', 'MKAdminBundle') }}</th>
+                                    <th rowspan="1" colspan="1">{{ "product.form.discount"|trans({}, 'admin_messages', 'MKAdminBundle') }}</th>
+                                    <th rowspan="1" colspan="1">{{ "form.action"|trans({}, 'admin_messages', 'MKAdminBundle') }}</th>
+                            </tfoot>
+                            <tbody role="alert" aria-live="polite" aria-relevant="all">
+                                {% for product in listProduct %}
+                                    <tr class="odd">
+                                        <td class=""><img src="{{ asset(product.getThumbImage()) }}" width="100" /></td>
+                                        <td class="">{{ product.title }}</td>
+                                        <td class=" sorting_1">{{ product.price }}</td>
+                                        <td class="">{{ product.discount }}</td>
+                                        <td class="">
+                                            <a class="btn btn-info" href="{{ path('mk_admin_product_edit', {'productId': product.id}) }}">{{ "Edit"|trans({}, 'admin_messages', 'MKAdminBundle') }}</a>
+                                            <a class="btn btn-danger" href="{{ path('mk_admin_product_delete', {'productId': product.id}) }}">{{ "Delete"|trans({}, 'admin_messages', 'MKAdminBundle') }}</a>
+                                        </td>
+                                    </tr>
+                                {% else %}
+                                    <tr>
+                                        <td colspan="5" align="center">There are no product</td>
+                                    </tr>
+                                {% endfor %}    
+                            </tbody>
+                        </table>
+                        {#    
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="dataTables_info" id="example1_info">Showing 1 to 10 of 57 entries</div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="dataTables_paginate paging_bootstrap">
+                                    <ul class="pagination">
+                                        <li class="prev disabled"><a href="#">← Previous</a></li>
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li class="next"><a href="#">Next → </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        #}
+                    </div>
+                </div><!-- /.box-body -->
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

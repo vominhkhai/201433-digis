@@ -1,0 +1,12 @@
+mk_common:
+    resource: "@MKCommonBundle/Resources/config/routing.yml"
+    prefix:   /
+
+mk_user:
+    resource: "@MKUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+mk_admin:
+    resource: "@MKAdminBundle/Resources/config/routing.yml"
+    prefix:   /admin
+

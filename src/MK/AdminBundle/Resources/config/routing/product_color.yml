@@ -1,0 +1,19 @@
+mk_admin_product_color:
+    path: /
+    defaults: { _controller: MKAdminBundle:ProductColor:index }
+
+mk_admin_product_color_add:
+    path: /addnew
+    defaults: { _controller: MKAdminBundle:ProductColor:add }
+        
+mk_admin_product_color_edit:
+    path: /edit/{productColorId}
+    defaults: { _controller: MKAdminBundle:ProductColor:add, productColorId: null }
+    requirements:
+        productId:  \d+
+
+mk_admin_product_color_delete:
+    path: /delete/{productColorId}
+    defaults: { _controller: MKAdminBundle:ProductColor:delete, productColorId: null }
+    requirements:
+        productId:  \d+

@@ -1,0 +1,14 @@
+{% for message_level in ['success','error', 'warning'] %}
+        {% set session_flashbag = app.session.flashbag.get(message_level) %}
+        {% if session_flashbag %}
+            {% for flash in session_flashbag %}
+            <br />
+            <div class="{{ 'alert alert-' ~ message_level ~' alert-dismissable' }}">
+                <i class="fa fa-check"></i>
+                <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
+                <strong>{{ "notification.text"|trans({}, 'admin_messages', 'MKAdminBundle')}}</strong>
+                {{ flash|trans([], 'admin_messages', 'MKAdminBundle') }}
+            </div>
+            {% endfor %}
+        {% endif %}
+{% endfor %}

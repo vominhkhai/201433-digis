@@ -1,0 +1,4 @@
+services:
+#    mk_admin.example:
+#        class: MK\AdminBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

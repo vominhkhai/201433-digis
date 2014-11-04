@@ -1,0 +1,25 @@
+<ul id="main-menu">
+    {% for menu in menus %}
+        {% if menu['sub_menu'] is not defined %}
+            <li {% if menu['active'] is defined %}class="active"{%endif%} >
+                <a href="{{path(menu['router'])}}">
+                    <i class="entypo-gauge"></i>
+                    <span>{{menu['text']}}</span>
+                </a>
+            </li>
+        {% else %}
+                <li class="{% if menu['active'] is defined %}active opened{%endif%}">
+                    <a href="javascipt:void(0)">
+                        <i class="entypo-layout"></i>
+                        {{menu['text']}}
+                    </a>
+                    <ul>
+                        {% for submenu in menu['sub_menu'] %}
+                        <li><a href="{{path(submenu['router'])}}">{{submenu['text']}}</a></li>
+                        {% endfor %}
+                    </ul>
+            </li>
+        {% endif %}
+    {% endfor %}
+</ul>
+  

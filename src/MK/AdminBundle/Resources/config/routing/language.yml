@@ -1,0 +1,31 @@
+mk_admin_language:
+    path: /
+    defaults: { _controller: MKAdminBundle:Language:index }
+
+mk_admin_language_add:
+    path: /addnew
+    defaults: { _controller: MKAdminBundle:Language:add }
+    
+mk_admin_language_set_default_front_end:
+    path: /setDefaultFrontEnd/{languageId}
+    defaults: { _controller: MKAdminBundle:Language:setDefaultFrontEnd, languageId: null }
+    requirements:
+        productId:  \d+
+        
+mk_admin_language_set_default_back_end:
+    path: /setDefaultBackEnd/{languageId}
+    defaults: { _controller: MKAdminBundle:Language:setDefaultBackEnd, languageId: null }
+    requirements:
+        productId:  \d+
+        
+mk_admin_language_edit:
+    path: /edit/{languageId}
+    defaults: { _controller: MKAdminBundle:Language:add, languageId: null }
+    requirements:
+        productId:  \d+
+
+mk_admin_language_delete:
+    path: /delete/{languageId}
+    defaults: { _controller: MKAdminBundle:Language:delete, languageId: null }
+    requirements:
+        productId:  \d+

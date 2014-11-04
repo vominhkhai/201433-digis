@@ -1,0 +1,19 @@
+mk_admin_product:
+    path: /
+    defaults: { _controller: MKAdminBundle:Product:index }
+
+mk_admin_product_add:
+    path: /addnew
+    defaults: { _controller: MKAdminBundle:Product:add }
+    
+mk_admin_product_edit:
+    path: /edit/{productId}
+    defaults: { _controller: MKAdminBundle:Product:add, productId: null }
+    requirements:
+        productId:  \d+
+
+mk_admin_product_delete:
+    path: /delete/{productId}
+    defaults: { _controller: MKAdminBundle:Product:delete, productId: null }
+    requirements:
+        productId:  \d+
