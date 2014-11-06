@@ -4,8 +4,8 @@ namespace MK\AdminBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use MK\AdminBundle\Entity\ProductColor;
-use MK\AdminBundle\Form\ProductColorType;
+use MK\AdminBundle\Entity\Category;
+use MK\AdminBundle\Form\CategoryType;
 
 class CategoryController extends Controller
 {
@@ -24,19 +24,22 @@ class CategoryController extends Controller
     {
         $entityManger = $this->getDoctrine()->getManager();
         $categoryRepo = $entityManger->getRepository('MKAdminBundle:Category');
-        
+        $translator = $this->get('translator');
+         
         if ($categoryId === null) {
-            $category = new ProductColor();
+            $category = new Category();
             $formAction = $this->generateUrl('mk_admin_category_add');
             $typeAction = "add";
+            $titleBreadcum = $translator->trans('category.add', array(), 'admin_messages');
         } else {
             $category = $categoryRepo->find($categoryId);
-            $formAction = $this->generateUrl('mk_admin_category_edit', array('$categoryId' => $category->getId()));
+            $formAction = $this->generateUrl('mk_admin_category_edit', array('categoryId' => $category->getId()));
             $typeAction = "edit";
+            $titleBreadcum = $translator->trans('category.edit', array(), 'admin_messages');
         }
         
-        $form = $this->createForm(new ProductColorType(), $category);
-        $translator = $this->get('translator');
+        $form = $this->createForm(new CategoryType(), $category);
+       
         if ($request->getMethod() == "POST") {
             $form->bind($request);
             if ($form->isValid()) {
@@ -46,7 +49,7 @@ class CategoryController extends Controller
                 $message = $translator->trans('category.form.create.success', array(), 'MKAdminBundle');
                 $this->get('session')->getFlashBag()->add('success', $message);
                 
-                return $this->redirect($this->generateUrl('mk_admin_category_color'));
+                return $this->redirect($this->generateUrl('mk_admin_category'));
             } else {
                 $message = $translator->trans('category.form.create.error', array(), 'MKAdminBundle');
                 $this->get('session')->getFlashBag()->add('error', $message);
@@ -55,7 +58,8 @@ class CategoryController extends Controller
         
         return $this->render("MKAdminBundle:Category:form.html.twig", array(
             'form' => $form->createView(),
-            'formAction' => $formAction
+            'formAction' => $formAction,
+            'titleBreadcum' => $titleBreadcum
         ));
     }
     
@@ -66,11 +70,11 @@ class CategoryController extends Controller
      * @param Integer $productId
      * 
      */
-    public function deleteAction(Request $request, $productColorId)
+    public function deleteAction(Request $request, $categoryId)
     {
         $entityManger = $this->getDoctrine()->getManager();
-        $productRepo = $entityManger->getRepository('MKAdminBundle:ProductColor');
-        $productColor = $productRepo->find($productColorId);
+        $categoryRepo = $entityManger->getRepository('MKAdminBundle:Category');
+        $category = $categoryRepo->find($categoryId);
         $translator = $this->get('translator');
         $form = $this->createFormBuilder()
                 ->add('delete', 'submit', array("attr" => array('class' => "btn btn-primary")))
@@ -80,23 +84,23 @@ class CategoryController extends Controller
             $form->bind($request);
             
             if ($form->isValid()) {
-                $entityManger->remove($productColor);
+                $entityManger->remove($category);
                 $entityManger->flush();
                 
                  //Set flash message
-                $message = $translator->trans('product.color.delete.success', array(), 'MKAdminBundle');
+                $message = $translator->trans('category.delete.success', array(), 'MKAdminBundle');
                 $this->get('session')->getFlashBag()->add('success', $message);
                 
-                return $this->redirect($this->generateUrl('mk_admin_product_color'));
+                return $this->redirect($this->generateUrl('mk_admin_category'));
             } else {
-                $message = $translator->trans('product.color.delete.error', array(), 'MKAdminBundle');
+                $message = $translator->trans('category.delete.error', array(), 'MKAdminBundle');
                 $this->get('session')->getFlashBag()->add('error', $message);
             }
         }
         
-        return $this->render("MKAdminBundle:ProductColor:delete.html.twig", array(
+        return $this->render("MKAdminBundle:Category:delete.html.twig", array(
             'form' => $form->createView(),
-            'productColor' => $productColor
+            'category' => $category
         ));
     }
 }

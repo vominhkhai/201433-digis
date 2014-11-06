@@ -3,15 +3,15 @@
 {% block contentHeader %}
     <section class="content-header">
     <h1>
-        Product Color
-        <small>Delete product color</small>
+        {{ "Product Category"|trans({}, "admin_messages", "MKAdminBundle") }}
+        <small>{{ "Delete product category"|trans({}, "admin_messages", "MKAdminBundle") }}</small>
     </h1>
 </section>
 {% endblock %}
 
 {% block content %}
-    {{ "product.color.form.delete.confirm"|trans({}, 'admin_messages', 'MKAdminBundle') }}
-    <form action="{{ path('mk_admin_product_color_delete', {'productColorId': productColor.id}) }}" method="post">
+    {{ "category.form.delete.confirm"|trans({}, 'admin_messages', 'MKAdminBundle') }}
+    <form action="{{ path('mk_admin_category_delete', {'categoryId': category.id}) }}" method="post">
         {{ form_widget(form) }}
     </form>
 {% endblock %}

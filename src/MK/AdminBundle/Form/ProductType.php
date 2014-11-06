@@ -23,6 +23,12 @@ class ProductType extends AbstractType
                     'class' => 'form-control',
                 )
             ))
+            ->add('category', null, array(
+                'label' => 'product.form.category',
+                'attr' => array(
+                    'class' => 'form-control',
+                )
+            ))
             ->add('excerpt', null, array(
                 'label' => 'product.form.excerpt',
                 'attr' => array(

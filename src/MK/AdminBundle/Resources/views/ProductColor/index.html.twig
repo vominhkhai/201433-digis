@@ -3,8 +3,8 @@
 {% block contentHeader %}
     <section class="content-header">
     <h1>
-        Product Color
-        <small>List Product Color</small>
+        {{ "Product Color"|trans({}, "admin_messages", "MKAdminBundle") }}
+        <small>{{ "List Product Color"|trans({}, "admin_messages", "MKAdminBundle") }}</small>
     </h1>
 </section>
 {% endblock %}
@@ -21,7 +21,7 @@
                         <div class="row">
                             <div class="col-xs-6">
                                 <div id="example1_length" class="dataTables_length">
-                                    <a class="btn btn-primary btn-flat" href="{{ path('mk_admin_product_color_add') }}">Add new Product Color</a>
+                                    <a class="btn btn-primary btn-flat" href="{{ path('mk_admin_product_color_add') }}">{{ "product.color.add"|trans({}, "admin_messages", "MKAdminBundle") }}</a>
                                 </div>
                             </div>
                             <div class="col-xs-6">

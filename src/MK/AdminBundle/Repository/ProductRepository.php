@@ -3,6 +3,7 @@
 namespace MK\AdminBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use MK\CommonBundle\Utilities\Utilities;
 
 /**
  * ProductRepository
@@ -18,6 +19,50 @@ class ProductRepository extends EntityRepository
         $expr = $queryBuilder->expr();
         $queryBuilder->select($expr->count('p.id'));
         $result = $queryBuilder->getQuery()->getSingleScalarResult();
+        
+        return $result;
+    }
+    public function getSearchProduct($keyword)
+    {
+        $queryBuilder = $this->createQueryBuilder('p');
+        $expr = $queryBuilder->expr();
+        $queryBuilder->select('p');
+        $queryBuilder->where($expr->like('p.title', $expr->literal("%$keyword%")));
+        $queryBuilder->orWhere($expr->like('p.content', $expr->literal("%$keyword%")));
+        
+        $result = $queryBuilder->getQuery()->getResult();
+        
+        return $result;
+    }
+    public function getFilterProduct($filter) 
+    {
+        $queryBuilder = $this->createQueryBuilder('p');
+        $expr = $queryBuilder->expr();
+        $queryBuilder->select('p');
+        $queryBuilder->leftJoin('p.category', 'c');
+        $queryBuilder->leftJoin('p.productColor', 'pc');
+        
+        
+        if (isset($filter['price']) && ($filter['price'] != null)) {
+            $filterPrice = Utilities::getParameter('filter.price.value');
+            $price = $filter['price'];
+            if (isset($filterPrice[$price])) {
+                $queryBuilder->andWhere($expr->between('p.price', $filterPrice[$price]['min'], $filterPrice[$price]['max']));
+            }
+        }
+        
+        if (isset($filter['category']) && ($filter['category'] != null)) {
+            $queryBuilder->andWhere('p.category = :category');
+            $queryBuilder->setParameter('category', $filter['category']);
+        }
+        
+        if (isset($filter['color']) && ($filter['color'] != null)) {
+            $queryBuilder->andWhere($expr->in('pc.id', array($filter['color']->getId())));
+            
+        }
+        
+        
+        $result = $queryBuilder->getQuery()->getResult();
         
         return $result;
     }

@@ -66,6 +66,12 @@ class Product
      **/
     private $productColor;
     
+    /**
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="product")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     **/
+    private $category;
+    
     public function __construct() {
         $this->productColor = new \Doctrine\Common\Collections\ArrayCollection();
     }

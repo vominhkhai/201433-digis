@@ -3,6 +3,7 @@
 namespace MK\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Table(name="mk_category")
@@ -18,7 +19,50 @@ class Category
     private $id;
     
     /**
-     * @ORM\Column(name="name", type="text")
+     * @ORM\Column(name="name", type="string", length=256)
      */
     private $name;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Product", mappedBy="category")
+     **/
+    private $product;
+    
+    
+    public function __construct() {
+        $this->features = new ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return Category
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
 }

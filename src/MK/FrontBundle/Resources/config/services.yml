@@ -1,0 +1,4 @@
+services:
+#    mk_front.example:
+#        class: MK\FrontBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

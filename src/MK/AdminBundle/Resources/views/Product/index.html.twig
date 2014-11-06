@@ -47,6 +47,7 @@
                                 <tr role="row">
                                     <th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 238px;" aria-label="Rendering engine: activate to sort column ascending">{{ "product.form.image"|trans({}, 'admin_messages', 'MKAdminBundle') }}</th>
                                     <th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 341px;" aria-label="Browser: activate to sort column ascending">{{ "product.form.title"|trans({}, 'admin_messages', 'MKAdminBundle') }}</th>
+                                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 341px;" aria-label="Browser: activate to sort column ascending">{{ "product.form.title"|trans({}, 'admin_messages', 'MKAdminBundle') }}</th>
                                     <th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 305px;" aria-sort="ascending" aria-label="Platform(s): activate to sort column descending">{{ "product.form.price"|trans({}, 'admin_messages', 'MKAdminBundle') }}</th>
                                     <th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 202px;" aria-label="Engine version: activate to sort column ascending">{{ "product.form.discount"|trans({}, 'admin_messages', 'MKAdminBundle') }}</th>
                                     <th role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 202px;" aria-label="Engine version: activate to sort column ascending">{{ "form.action"|trans({}, 'admin_messages', 'MKAdminBundle') }}</th>
@@ -56,6 +57,7 @@
                                 <tr>
                                     <th rowspan="1" colspan="1">{{ "product.form.image"|trans({}, 'admin_messages', 'MKAdminBundle') }}</th>
                                     <th rowspan="1" colspan="1">{{ "product.form.title"|trans({}, 'admin_messages', 'MKAdminBundle') }}</th>
+                                    <th rowspan="1" colspan="1">{{ "product.form.title"|trans({}, 'admin_messages', 'MKAdminBundle') }}</th>
                                     <th rowspan="1" colspan="1">{{ "product.form.price"|trans({}, 'admin_messages', 'MKAdminBundle') }}</th>
                                     <th rowspan="1" colspan="1">{{ "product.form.discount"|trans({}, 'admin_messages', 'MKAdminBundle') }}</th>
                                     <th rowspan="1" colspan="1">{{ "form.action"|trans({}, 'admin_messages', 'MKAdminBundle') }}</th>
@@ -64,6 +66,7 @@
                                 {% for product in listProduct %}
                                     <tr class="odd">
                                         <td class=""><img src="{{ asset(product.getThumbImage()) }}" width="100" /></td>
+                                        <td class="">{{ product.category }}</td>
                                         <td class="">{{ product.title }}</td>
                                         <td class=" sorting_1">{{ product.price }}</td>
                                         <td class="">{{ product.discount }}</td>

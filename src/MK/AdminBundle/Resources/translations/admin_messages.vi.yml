@@ -24,6 +24,7 @@ product.form.discount: "Giảm giá (%)"
 product.form.oldPrice: "Giá cũ"
 product.form.image: "Hình ảnh sản phẩm"
 product.form.productColor: "Màu sắc sản phẩm"
+product.form.category: "Danh mục sản phẩm"
 product.form.delete.confirm: "Bạn có muốn xóa sản phẩm này không ?"
 form.product.create.success: "Thêm mới một sản phẩm thành công"
 form.product.delete.success: "Xóa sản phẩm thành công"
@@ -39,20 +40,31 @@ language.form.create.success: "Create a new language successful"
 language.form.create.error: "Error when create language"
 
 #translate for product color
+"List Product Color": "Danh sách màu sắc"
 product.color.form.id: "ID"
 product.color.form.name: "Tên màu sắc"
 product.color.form.color: "Màu"
-product.color.form.create.success: "Create a new product color successful"
-product.color.form.delete.confirm: "Dơ you want to delete this product color"
-product.color.delete.success: "Delete product color successful"
+product.color.form.create.success: "Thêm màu sắc sản phẩm thành công"
+product.color.form.delete.confirm: "Bạn có muốn xóa màu sắc sản phẩm này không?"
+product.color.delete.success: "Xóa màu sắc sản phẩm thành công"
+product.color.add: "Thêm màu sắc mới"
+product.color.edit: "Sửa màu sắc"
+
 
 #translate for category
 "Product Category": "Danh mục sản phẩm"
 "List Product Category": "Danh sách danh mục sản phẩm"
+"Delete product category": "Xóa danh mục sản phẩm"
 category.form.name: "Tên danh mục"
 category.form.id: "ID"
 category.add: "Thêm mới danh mục"
+category.no.item: "Không có danh mục sản phẩm nào"
+category.form.delete.confirm: "Bạn có muốn xóa danh mục này không ?"
+category.delete.success: "Xóa danh mục thành công"
 
 
 
- 
+
+filter.form.choice.all: "--Tất cả--"
+filter.form.category: "Danh mục"
+filter.form.color: "màu sắc"

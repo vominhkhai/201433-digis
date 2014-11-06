@@ -1,0 +1,28 @@
+{% javascripts 'bundles/mkfront/js/jquery-2.1.1.min.js' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+        
+<form method="post" id="form-filter" />
+{{ form_row(formFilter) }}
+<input type="submit" value="ok" />
+</form>
+
+
+{% if (request.isMethod("POST")) %}
+    {% for product in resultFilter %}
+        <div style="float:left; width: 200px">
+            <img src="{{ asset(product.getThumbImage()) }}" width="100" />
+            <br />
+            {{ product.title }} <br />
+            {{ product.price }} <br />
+        </div>
+        
+    {% else %}
+        Không có sản phẩm nào
+    {% endfor %}
+{% endif %}
+<script>
+    function sumbitFilterForm() {
+        $("#form-filter").submit();
+    }
+</script>

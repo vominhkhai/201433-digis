@@ -1,0 +1,7 @@
+mk_front_homepage:
+    path:     /filter
+    defaults: { _controller: MKFrontBundle:Default:index }
+
+mk_front_search:
+    path:     /search
+    defaults: { _controller: MKFrontBundle:Default:search }

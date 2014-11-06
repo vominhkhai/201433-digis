@@ -24,19 +24,22 @@ class ProductColorController extends Controller
     {
         $entityManger = $this->getDoctrine()->getManager();
         $productColorRepo = $entityManger->getRepository('MKAdminBundle:ProductColor');
+        $translator = $this->get('translator');
         
         if ($productColorId === null) {
             $productColor = new ProductColor();
             $formAction = $this->generateUrl('mk_admin_product_color_add');
             $typeAction = "add";
+            $titleBreadcum = $translator->trans('product.color.add', array(), 'admin_messages');
         } else {
             $productColor = $productColorRepo->find($productColorId);
             $formAction = $this->generateUrl('mk_admin_product_color_edit', array('productColorId' => $productColor->getId()));
             $typeAction = "edit";
+            $titleBreadcum = $translator->trans('product.color.edit', array(), 'admin_messages');
         }
         
         $form = $this->createForm(new ProductColorType(), $productColor);
-        $translator = $this->get('translator');
+        
         if ($request->getMethod() == "POST") {
             $form->bind($request);
             if ($form->isValid()) {
@@ -55,7 +58,8 @@ class ProductColorController extends Controller
         
         return $this->render("MKAdminBundle:ProductColor:form.html.twig", array(
             'form' => $form->createView(),
-            'formAction' => $formAction
+            'formAction' => $formAction,
+            'titleBreadcum' => $titleBreadcum
         ));
     }
     
